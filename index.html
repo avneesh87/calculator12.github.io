@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+       
+       center{
+           margin-top: 20%;
+       }
+       input{
+           width: 50%;
+           height: 40px;
+           font-size: 30px;
+       }
+       label{
+           font-size:30px;
+       }
+       div
+       {
+           border: 2px solid black;
+           width: 190px;
+           height: 50px;
+           font-size: 20px;
+           font-weight: bolder;
+       }
+       button
+       {
+           width: 100px;
+           height: 50px;
+       }
+    </style>
+</head>
+<body>
+   <center>
+        <table>
+            <tr>
+                <td><label >Unit Cost</label></td>
+                <td><input type="number" name="" id="unitcost"></td>
+            </tr>
+            <tr>
+                <td><label >No of Units</label></td>
+                <td><input type="number" name="" id="noofunits"></td>
+            </tr>
+            <tr>
+                <td><label >Discount %</label></td>
+                <td><input type="number" name="" id="discount"></td>
+            </tr>
+            <tr>
+                <td><button onclick="totalcast(unitcost.value,noofunits.value,discount.value)">Total cost</button></td>
+                
+                <td><div><p id="total"></p></div></td>
+            </tr>
+            <tr>
+                <td><button onclick="reset()">Reset</button></td>
+            </tr>
+        </table>  
+   </center>
+   <script>
+       function totalcast(unitcost,noofunits,discount) {
+        let a=Number(unitcost);
+        let b=Number(noofunits);
+        let c=Number(discount);
+        let f=a*b;
+        let d=(a*b*c)/100;
+        let e=f-d;
+        document.getElementById('total').innerHTML=e;
+       } 
+       function reset() {
+        document.getElementById('unitcost').value="";   
+        document.getElementById('noofunits').value=""; 
+        document.getElementById('discount').value=""; 
+        document.getElementById('total').innerHTML="";   
+       }
+   </script>
+</body>
+</html>

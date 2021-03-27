@@ -21,6 +21,7 @@
             border: 2px solid black;
             width: 190px;
             height: 60px;
+            background-color: white;
 
             font-weight: bolder;
         }
@@ -41,27 +42,36 @@
         textarea {
             font-size: 15px;
         }
+
+        body {
+            background-image: url("pic1.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 99%;
+        }
     </style>
 </head>
 
 <body>
-    <textarea name="" id="" cols="160" rows="7"></textarea>
+    <textarea name="" id="" cols="163" rows="7"></textarea>
     <table>
         <tr>
             <td><label>Unit Cost</label></td>
             <td><input type="number" name="" id="unitcost"></td>
+            <td><button onclick="adultroomrate()">Transfer</button></td>
             <td><label>Adult room rate</label></td>
             <td><input type="number" name="" id="adultroom"></td>
         </tr>
         <tr>
             <td><label>No of Units</label></td>
             <td><input type="number" name="" id="noofunits"></td>
+            <td><button onclick="childroomrate()">Transfer</button></td>
             <td><label>Child room rate</label></td>
             <td><input type="number" name="" id="Cdultroom"></td>
         </tr>
         <tr>
             <td><label>Discount %</label></td>
             <td><input type="number" name="" id="discount"></td>
+            <td><button onclick="adultmealsupplement()">Transfer</button></td>
             <td><label>Adult meal supplement</label></td>
             <td><input type="number" name="" id="adultmeal"></td>
         </tr>
@@ -72,32 +82,37 @@
                     <p id="total"></p>
                 </div>
             </td>
+            <td><button onclick="childmealsupplement()">Transfer</button></td>
             <td><label>Child meal supplement</label></td>
             <td><input type="number" name="" id="Childmeal"></td>
         </tr>
         <tr>
             <td><button onclick="reset()">Reset</button></td>
             <td><label></label></td>
+            <td><button onclick="adulttransfercost()">Transfer</button></td>
             <td><label>Adult transfer cost</label></td>
             <td><input type="number" name="" id="adulttranfer"></td>
         </tr>
         <tr>
             <td><label></label></td>
             <td></td>
+            <td><button onclick="childtransfercost()">Transfer</button></td>
             <td><label>Child transfer cost</label></td>
             <td><input type="number" name="" id="childtranfer"></td>
         </tr>
         <tr>
             <td><label></label></td>
             <td><label></label></td>
+            <td><button onclick="greentax()">Transfer</button></td>
             <td><label>Green tax</label></td>
-            <td><input type="number" name="" id="greentax"></td>
+            <td><input type="number" name="" id="greentax1"></td>
         </tr>
         <tr>
             <td><label></label></td>
             <td><label></label></td>
+            <td></td>
             <td><button
-                    onclick="totalcast(adultroom.value,Cdultroom.value,adultmeal.value,Childmeal.value,adulttranfer.value,childtranfer.value,greentax.value)">Total</button>
+                    onclick="totalcast(adultroom.value,Cdultroom.value,adultmeal.value,Childmeal.value,adulttranfer.value,childtranfer.value,greentax1.value)">Total</button>
             </td>
             <td>
                 <div>
@@ -108,18 +123,20 @@
         <tr>
             <td><label></label></td>
             <td><label></label></td>
+            <td></td>
             <td><button onclick="reset1()">Reset</button></td>
         </tr>
     </table>
     <script>
+        var total1 ;
         function total(unitcost, noofunits, discount) {
             let a = Number(unitcost);
             let b = Number(noofunits);
             let c = Number(discount);
             let f = a * b;
             let d = (a * b * c) / 100;
-            let e = f - d;
-            document.getElementById('total').innerHTML = e;
+            total1 = f - d;
+            document.getElementById('total').innerHTML = total1;
         }
         function reset() {
             document.getElementById('unitcost').value = "";
@@ -127,15 +144,16 @@
             document.getElementById('discount').value = "";
             document.getElementById('total').innerHTML = "";
         }
-        function totalcast(adultroom, Cdultroom, adultmeal, Childmeal, adulttranfer, childtranfer, greentax) {
+       
+        function totalcast(adultroom, Cdultroom, adultmeal, Childmeal, adulttranfer, childtranfer, greentax1) {
             let a = Number(adultroom);
             let h = Number(Cdultroom);
             let b = Number(adultmeal);
-            let c = Number(Childmeal);
+            let c = Number(Childmeal); 
             let d = Number(adulttranfer);
             let e = Number(childtranfer);
-            let f = Number(greentax);
-            let g=a+b+c+d+e+f+h;
+            let f = Number(greentax1);
+            let g = a + b + c + d + e +f + h;
             document.getElementById('totalcost').innerHTML = g;
         }
         function reset1() {
@@ -147,6 +165,29 @@
             document.getElementById('childtranfer').value = "";
             document.getElementById('greentax').value = "";
             document.getElementById('totalcost').innerHTML = "";
+        }
+        function adultroomrate() {
+            document.getElementById('adultroom').value =total1;
+        }
+        
+        function childroomrate() {
+            document.getElementById('Cdultroom').value =total1;
+        }
+        function adultmealsupplement() {
+            document.getElementById('adultmeal').value =total1;
+        }
+        function childmealsupplement() {
+            document.getElementById('Childmeal').value =total1;
+        }
+        function adulttransfercost() {
+            document.getElementById('adulttranfer').value =total1;
+        }
+        function childtransfercost() {
+            document.getElementById('childtranfer').value =total1;
+        }
+        function greentax() {
+            document.getElementById('greentax1').value =total1;
+            
         }
     </script>
 </body>

@@ -132,6 +132,10 @@
         function total(unitcost, noofunits, discount) {
             let a = Number(unitcost);
             let b = Number(noofunits);
+            if(b==0)
+            {
+                b=1;
+            }
             let c = Number(discount);
             let f = a * b;
             let d = (a * b * c) / 100;

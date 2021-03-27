@@ -63,7 +63,6 @@
             <td><button onclick="childroomrate()">Transfer</button></td>
             <td><label>Child room rate</label></td>
             <td><input type="number" name="" id="Cdultroom"></td>
-
             <td><label>Operand 2</label></td>
             <td><input type="number" id="opnd2"></td>
         </tr>
@@ -109,6 +108,7 @@
             <td><button onclick="childtransfercost()">Transfer</button></td>
             <td><label>Child transfer cost</label></td>
             <td><input type="number" name="" id="childtranfer"></td>
+            <td><button onclick="reset2()">Reset</button></td>
         </tr>
         <tr>
             <td></td>
@@ -126,7 +126,7 @@
             </td>
             <td>
                 <div>
-                    <p id="totalcost"></p>
+                    <p id="totalcost1"></p>
                 </div>
             </td>
         </tr>
@@ -167,7 +167,7 @@
             let e = Number(childtranfer);
             let f = Number(greentax1);
             let g = a + b + c + d + e + f + h;
-            document.getElementById('totalcost').innerHTML = g;
+            document.getElementById('totalcost1').innerHTML = g;
         }
         function reset1() {
             document.getElementById('adultroom').value = "";
@@ -176,13 +176,12 @@
             document.getElementById('Childmeal').value = "";
             document.getElementById('adulttranfer').value = "";
             document.getElementById('childtranfer').value = "";
-            document.getElementById('greentax').value = "";
-            document.getElementById('totalcost').innerHTML = "";
+            document.getElementById('greentax1').value = "";
+            document.getElementById('totalcost1').innerHTML = "";
         }
         function adultroomrate() {
             document.getElementById('adultroom').value = total1;
         }
-
         function childroomrate() {
             document.getElementById('Cdultroom').value = total1;
         }
@@ -202,26 +201,31 @@
             document.getElementById('greentax1').value = total1;
 
         }
-function add(opnd1,opnd2) {
-let a=Number(opnd1);
-let b=Number(opnd2);
-document.getElementById('valueof').innerHTML=a+b;
-}
-function sub(opnd1,opnd2) {
-let a=Number(opnd1);
-let b=Number(opnd2);
-document.getElementById('valueof').innerHTML=a-b;
-}
-function mul(opnd1,opnd2) {
-let a=Number(opnd1);
-let b=Number(opnd2);
-document.getElementById('valueof').innerHTML=a*b;
-}
-function div(opnd1,opnd2) {
-let a=Number(opnd1);
-let b=Number(opnd2);
-document.getElementById('valueof').innerHTML=a/b;
-}
+        function reset2() {
+            document.getElementById('valueof').innerHTML="";
+        }
+        function add(opnd1, opnd2) {
+            let a = Number(opnd1);
+            let b = Number(opnd2);
+            document.getElementById('valueof').innerHTML = a + b;
+        }
+        function sub(opnd1, opnd2) {
+            let a = Number(opnd1);
+            let b = Number(opnd2);
+            document.getElementById('valueof').innerHTML = a - b;
+        }
+        function mul(opnd1, opnd2) {
+            let a = Number(opnd1);
+            let b = Number(opnd2);
+            document.getElementById('valueof').innerHTML = a * b;
+        }
+        function div(opnd1, opnd2) {
+            let a = Number(opnd1);
+            let b = Number(opnd2);
+            document.getElementById('valueof').innerHTML = a / b;
+        }
+
+
     </script>
 </body>
 

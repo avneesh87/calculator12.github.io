@@ -17,7 +17,7 @@
             font-size: 23px;
         }
 
-        div {
+        #AZ {
             border: 2px solid black;
             width: 190px;
             height: 60px;
@@ -42,11 +42,14 @@
         textarea {
             font-size: 15px;
         }
+        #aa{
+            margin-left: 75%;
+            margin-top: -44%;
+        }
     </style>
 </head>
 
 <body>
-    <textarea name="" id="" cols="163" rows="5"></textarea>
     <table>
         <tr>
             <td><label>Unit Cost</label></td>
@@ -54,8 +57,7 @@
             <td><button onclick="adultroomrate()">Transfer</button></td>
             <td><label>Adult room rate</label></td>
             <td><input type="number" name="" id="adultroom"></td>
-            <td><label>Operand 1</label></td>
-            <td><input type="number" id="opnd1"></td>
+
         </tr>
         <tr>
             <td><label>No of Units</label></td>
@@ -63,8 +65,7 @@
             <td><button onclick="childroomrate()">Transfer</button></td>
             <td><label>Child room rate</label></td>
             <td><input type="number" name="" id="Cdultroom"></td>
-            <td><label>Operand 2</label></td>
-            <td><input type="number" id="opnd2"></td>
+
         </tr>
         <tr>
             <td><label>Discount %</label></td>
@@ -72,22 +73,18 @@
             <td><button onclick="adultmealsupplement()">Transfer</button></td>
             <td><label>Adult meal supplement</label></td>
             <td><input type="number" name="" id="adultmeal"></td>
-            <td><button onclick="add(opnd1.value,opnd2.value)">+</button></td>
-            <td><button onclick="sub(opnd1.value,opnd2.value)">-</button></td>
 
         </tr>
         <tr>
             <td><button onclick="total(unitcost.value,noofunits.value,discount.value)">Total</button></td>
             <td>
-                <div>
+                <div id="AZ">
                     <p id="total"></p>
                 </div>
             </td>
             <td><button onclick="childmealsupplement()">Transfer</button></td>
             <td><label>Child meal supplement</label></td>
             <td><input type="number" name="" id="Childmeal"></td>
-            <td><button onclick="mul(opnd1.value,opnd2.value)">*</button></td>
-            <td><button onclick="div(opnd1.value,opnd2.value)">/</button></td>
         </tr>
         <tr>
             <td><button onclick="reset()">Reset</button></td>
@@ -95,48 +92,56 @@
             <td><button onclick="adulttransfercost()">Transfer</button></td>
             <td><label>Adult transfer cost</label></td>
             <td><input type="number" name="" id="adulttranfer"></td>
-            <td><label>Total</label></td>
-            <td>
-                <div id="z">
-                    <p id="valueof"></p>
-                </div>
-            </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td><label>Operand 1</label></td>
+            <td><input type="number" id="opnd1"></td>
             <td><button onclick="childtransfercost()">Transfer</button></td>
             <td><label>Child transfer cost</label></td>
             <td><input type="number" name="" id="childtranfer"></td>
-            <td><button onclick="reset2()">Reset</button></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td><label>Operand 2</label></td>
+            <td><input type="number" id="opnd2"></td>
             <td><button onclick="greentax()">Transfer</button></td>
             <td><label>Green tax</label></td>
             <td><input type="number" name="" id="greentax1"></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td><button onclick="add(opnd1.value,opnd2.value)">+</button></td>
+            <td><button onclick="sub(opnd1.value,opnd2.value)">-</button></td>
             <td></td>
             <td><button
                     onclick="totalcast(adultroom.value,Cdultroom.value,adultmeal.value,Childmeal.value,adulttranfer.value,childtranfer.value,greentax1.value)">Total</button>
             </td>
             <td>
-                <div>
+                <div id="AZ">
                     <p id="totalcost1"></p>
                 </div>
             </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td><button onclick="mul(opnd1.value,opnd2.value)">*</button></td>
+            <td><button onclick="div(opnd1.value,opnd2.value)">/</button></td>
             <td></td>
             <td><button onclick="reset1()">Reset</button></td>
         </tr>
+        <tr>
+            <td><label>Total</label></td>
+            <td>
+                <div id="AZ">
+                    <p id="valueof"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><button onclick="reset2()">Reset</button></td>
+        </tr>
     </table>
+    <div id="aa">
+        <textarea name="" id="" cols="38" rows="30"></textarea>
+    </div>
+
     <script>
         var total1;
         function total(unitcost, noofunits, discount) {
@@ -202,9 +207,10 @@
 
         }
         function reset2() {
-            document.getElementById('valueof').innerHTML="";
-            document.getElementById('opnd1').value="";
-            document.getElementById('opnd2').value="";
+            document.getElementById('valueof').innerHTML = "";
+           
+            document.getElementById('opnd1').value = "";
+            document.getElementById('opnd2').value = "";
         }
         function add(opnd1, opnd2) {
             let a = Number(opnd1);

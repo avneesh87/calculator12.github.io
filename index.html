@@ -5,46 +5,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Document</title>
     <style>
-        input {
-            width: 50%;
-            height: 40px;
-            font-size: 27px;
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: left;
         }
 
-        label {
-            font-size: 23px;
+        .a {
+            background-color: yellow;
         }
 
-        #AZ {
-            border: 2px solid black;
-            width: 190px;
-            height: 60px;
-            background-color: white;
-
-            font-weight: bolder;
+        .b {
+            background-color: blue;
+            color: white;
+            font-size: 20px;
         }
 
-        p {
-            font-size: 30px;
+        #dis {
+            background-color: brown;
         }
 
-        button {
-            width: 90px;
-            height: 40px;
-            background-color: chartreuse;
-            border-radius: 10px;
-            font-size: 18px;
-
+        input
+       {
+           height: 19px;
+           width: 80px;
+       }
+       #aa{
+            margin-left: 55%;
+            margin-top: -45%;
         }
-
-        textarea {
-            font-size: 15px;
+        #discount,#discount1,#discount2,#discount3,#discount4,#discount5,#discount6,#discount7,#discount8,#discount9,#discount10,#discount15
+        {
+              background-color: brown;
+              color: white;
         }
-        #aa{
-            margin-left: 75%;
-            margin-top: -44%;
+        .c{
+            background-color: rgb(130, 51, 150);
+            color: white;
+        }
+        .d
+        {
+            background-color: rgb(108, 201, 196);
+            color: white;
+        }
+        .f{
+            background-color: lightcoral;
+            color: white;
         }
     </style>
 </head>
@@ -52,99 +63,181 @@
 <body>
     <table>
         <tr>
-            <td><label>Unit Cost</label></td>
-            <td><input type="number" name="" id="unitcost"></td>
-            <td><button onclick="adultroomrate()">Transfer</button></td>
-            <td><label>Adult room rate</label></td>
-            <td><input type="number" name="" id="adultroom"></td>
+            <th class="a">Services</th>
+            <th class="a">Unit Cost</th>
+            <th class="a">No of Units</th>
+            <th class="a">Discount %</th>
+            <th class="a">Total Cost</th>
+        </tr>
+        <tr>
 
+            <td>Adult Room Rate</td>
+            <td><input type="text" id="unitcost"></td>
+            <td><input type="text" id="noofunits"></td>
+            <td><input type="text" id="discount"></td>
+            <td><input type="text" id="to" onfocusin="AdultRoomRate(unitcost.value,noofunits.value,discount.value)"></td>
         </tr>
         <tr>
-            <td><label>No of Units</label></td>
-            <td><input type="number" name="" id="noofunits"></td>
-            <td><button onclick="childroomrate()">Transfer</button></td>
-            <td><label>Child room rate</label></td>
-            <td><input type="number" name="" id="Cdultroom"></td>
 
+            <td>Child Room Rate</td>
+            <td><input type="text" id="unitcost1"></td>
+            <td><input type="text" id="noofunits1"></td>
+            <td><input type="text" id="discount1"></td>
+            <td><input type="text" id="to1"  onfocusin="ChildRoomRate(unitcost1.value,noofunits1.value,discount1.value)"></td>
         </tr>
         <tr>
-            <td><label>Discount %</label></td>
-            <td><input type="number" name="" id="discount"></td>
-            <td><button onclick="adultmealsupplement()">Transfer</button></td>
-            <td><label>Adult meal supplement</label></td>
-            <td><input type="number" name="" id="adultmeal"></td>
 
+            <td>Adult Meal Suppliment Cost</td>
+            <td><input type="text" id="unitcost2"></td>
+            <td><input type="text" id="noofunits2"></td>
+            <td><input type="text" id="discount2"></td>
+            <td><input type="text" id="to2"  onfocusin="AdultMealSupplimentCost(unitcost2.value,noofunits2.value,discount2.value)"></td>
         </tr>
         <tr>
-            <td><button onclick="total(unitcost.value,noofunits.value,discount.value)">Total</button></td>
-            <td>
-                <div id="AZ">
-                    <p id="total"></p>
-                </div>
-            </td>
-            <td><button onclick="childmealsupplement()">Transfer</button></td>
-            <td><label>Child meal supplement</label></td>
-            <td><input type="number" name="" id="Childmeal"></td>
+
+            <td>Child Meal Suppliment Cost</td>
+            <td><input type="text" id="unitcost3"></td>
+            <td><input type="text" id="noofunits3"></td>
+            <td><input type="text" id="discount3"></td>
+            <td><input type="text" id="to3"  onfocusin="ChildMealSupplimentCost(unitcost3.value,noofunits3.value,discount3.value)"></td>
         </tr>
         <tr>
-            <td><button onclick="reset()">Reset</button></td>
-            <td><label></label></td>
-            <td><button onclick="adulttransfercost()">Transfer</button></td>
-            <td><label>Adult transfer cost</label></td>
-            <td><input type="number" name="" id="adulttranfer"></td>
-        </tr>
-        <tr>
-            <td><label>Operand 1</label></td>
-            <td><input type="number" id="opnd1"></td>
-            <td><button onclick="childtransfercost()">Transfer</button></td>
-            <td><label>Child transfer cost</label></td>
-            <td><input type="number" name="" id="childtranfer"></td>
-        </tr>
-        <tr>
-            <td><label>Operand 2</label></td>
-            <td><input type="number" id="opnd2"></td>
-            <td><button onclick="greentax()">Transfer</button></td>
-            <td><label>Green tax</label></td>
-            <td><input type="number" name="" id="greentax1"></td>
-        </tr>
-        <tr>
-            <td><button onclick="add(opnd1.value,opnd2.value)">+</button></td>
-            <td><button onclick="sub(opnd1.value,opnd2.value)">-</button></td>
+
+            <td>Green Tax</td>
+            <td><input type="text" id="unitcost4"></td>
+            <td><input type="text" id="noofunits4"></td>
             <td></td>
-            <td><button
-                    onclick="totalcast(adultroom.value,Cdultroom.value,adultmeal.value,Childmeal.value,adulttranfer.value,childtranfer.value,greentax1.value)">Total</button>
-            </td>
-            <td>
-                <div id="AZ">
-                    <p id="totalcost1"></p>
-                </div>
-            </td>
+            <td><input type="text" id="to4" onfocusin="GreenTax1(unitcost4.value,noofunits4.value)"></td>
         </tr>
         <tr>
-            <td><button onclick="mul(opnd1.value,opnd2.value)">*</button></td>
-            <td><button onclick="div(opnd1.value,opnd2.value)">/</button></td>
+
+            <td class="a">Per Night Cost</td>
             <td></td>
-            <td><button onclick="reset1()">Reset</button></td>
+            <td></td>
+            <td></td>
+            <td><input type="text" class="c"  id="to5" onfocusin="PerNightCost1()"></td>
         </tr>
         <tr>
-            <td><label>Total</label></td>
-            <td>
-                <div id="AZ">
-                    <p id="valueof"></p>
-                </div>
-            </td>
+
+            <td>Total Cost</td>
+            <td></td>
+            <td><input type="text" class="f" id="noofunits6"></td>
+            <td></td>
+            <td><input type="text" class="c" id="to6" onfocusin="TotalCost1(noofunits6.value)"></td>
         </tr>
         <tr>
-            <td><button onclick="reset2()">Reset</button></td>
+
+            <td>Room Top-up Cost</td>
+            <td><input type="text" id="unitcost7"></td>
+            <td><input type="text" id="noofunits7"></td>
+            <td><input type="text" id="discount10"></td>
+            <td><input type="text" id="to7" onfocusin="RoomTopupCost(unitcost7.value,noofunits7.value,discount10.value)"></td>
+        </tr>
+        <tr>
+            <td>RT-PCR Test</td>
+            <td><input type="text" id="unitcost8"></td>
+            <td><input type="text" id="noofunits8"></td>
+            <td></td>
+            <td><input type="text" id="to8" onfocusin="RTPCR(unitcost8.value,noofunits8.value)"></td>
+        </tr>
+        <tr>
+
+            <td>Adult Transfer Cost</td>
+            <td><input type="text" id="unitcost9"></td>
+            <td><input type="text" id="noofunits9"></td>
+            <td><input type="text" id="discount5"></td>
+            <td><input type="text" id="to9" onfocusin="AdultTransferCost(unitcost9.value,noofunits9.value,discount5.value)"></td>
+        </tr>
+        <tr>
+ 
+            <td>Child Transfer Cost</td>
+            <td><input type="text" id="unitcost10"></td>
+            <td><input type="text" id="noofunits10"></td>
+            <td><input type="text" id="discount6"></td>
+            <td><input type="text" id="to10" onfocusin="ChildTransferCost(unitcost10.value,noofunits10.value,discount6.value)"></td>
+        </tr>
+        <tr>
+            <td class="a">Total Cost</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input type="text" class="c" id="to11" onfocusin="TotalCost2()"></td>
+        </tr>
+        <tr colspan="2">
+            <td class="b"></td>
+            <td class="b"></td>
+            <td class="b">Split Stay</td>
+            <td class="b"></td>
+            <td class="b"></td>
+        </tr>
+        <tr>
+            <td>Split Adult Room Cost</td>
+            <td><input type="text" id="unitcost11"></td>
+            <td><input type="text" id="noofunits11"></td>
+            <td><input type="text" id="discount7"></td>
+            <td><input type="text" id="to12" onfocusin="SplitAdultRoomCost(unitcost11.value,noofunits11.value,discount7.value)"></td>
+        </tr>
+        <tr>   
+            <td>Split Child Room Cost</td>
+            <td><input type="text" id="unitcost12"></td>
+            <td><input type="text" id="noofunits12"></td>
+            <td><input type="text" id="discount15"></td>
+            <td><input type="text" id="to13" onfocusin="SplitChildRoomCost(unitcost12.value,noofunits12.value,discount15.value)"></td>
+        </tr>
+        <tr>
+
+            <td>Adult Meal Suppliment Cost</td>
+            <td><input type="text" id="unitcost13"></td>
+            <td><input type="text" id="noofunits13"></td>
+            <td><input type="text" id="discount8"></td>
+            <td><input type="text" id="to14" onfocusin="AdultMealSupplimentCost2(unitcost13.value,noofunits13.value,discount8.value)"></td>
+        </tr>
+        <tr>
+
+            <td>Child Meal Suppliment Cost</td>
+            <td><input type="text" id="unitcost14"></td>
+            <td><input type="text" id="noofunits14"></td>
+            <td><input type="text" id="discount9"></td>
+            <td><input type="text" id="to15" onfocusin="ChildMealSupplimentCost2(unitcost14.value,noofunits14.value,discount9.value)"></td>
+        </tr>
+        <tr>
+
+            <td>Green Tax</td>
+            <td><input type="text" id="unitcost15"></td>
+            <td><input type="text" id="noofunits15"></td>
+            <td></td>
+            <td><input type="text" id="to16" onfocusin="GreenTax2(unitcost15.value,noofunits15.value)"></td>
+        </tr>
+        <tr>
+            <td class="a">Per Night Cost</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input type="text" class="c"  id="to17" onfocusin="PerNightCost2()"></td>
+        </tr>
+        <tr>
+
+            <td>Total Night Cost</td>
+            <td></td>
+            <td><input type="text" class="f" id="noofunits16"></td>
+            <td></td>
+            <td><input type="text" class="c" id="to18" onfocusin="TotalNightCost(noofunits16.value)"></td>
+        </tr>
+        <tr>
+
+            <td class="a">Total Payable Amount</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input type="text" class="d" id="to19" onfocusin="TotalPayableAmount()"></td>
         </tr>
     </table>
     <div id="aa">
-        <textarea name="" id="" cols="38" rows="30"></textarea>
+        <textarea name="" id="" cols="57" rows="39"></textarea> 
     </div>
-
     <script>
-        var total1;
-        function total(unitcost, noofunits, discount) {
+        var total1,total2,total3,total4,total5,total6,total7,total8,total9,total10,total11,total12,total13,total14,total15,total16,total17,total18,total19;
+        function AdultRoomRate(unitcost, noofunits, discount) {
             let a = Number(unitcost);
             let b = Number(noofunits);
             if (b == 0) {
@@ -154,86 +247,171 @@
             let f = a * b;
             let d = (a * b * c) / 100;
             total1 = f - d;
-            document.getElementById('total').innerHTML = total1;
+            document.getElementById("to").value = total1;
         }
-        function reset() {
-            document.getElementById('unitcost').value = "";
-            document.getElementById('noofunits').value = "";
-            document.getElementById('discount').value = "";
-            document.getElementById('total').innerHTML = "";
+        function ChildRoomRate(unitcost, noofunits, discount) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            if (b == 0) {
+                b = 1;
+            }
+            let c = Number(discount);
+            let f = a * b;
+            let d = (a * b * c) / 100;
+            total2 = f - d;
+            document.getElementById("to1").value = total2;
         }
-
-        function totalcast(adultroom, Cdultroom, adultmeal, Childmeal, adulttranfer, childtranfer, greentax1) {
-            let a = Number(adultroom);
-            let h = Number(Cdultroom);
-            let b = Number(adultmeal);
-            let c = Number(Childmeal);
-            let d = Number(adulttranfer);
-            let e = Number(childtranfer);
-            let f = Number(greentax1);
-            let g = a + b + c + d + e + f + h;
-            document.getElementById('totalcost1').innerHTML = g;
+        function AdultMealSupplimentCost(unitcost, noofunits, discount) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            if (b == 0) {
+                b = 1;
+            }
+            let c = Number(discount);
+            let f = a * b;
+            let d = (a * b * c) / 100;
+            total3 = f - d;
+            document.getElementById("to2").value = total3;
         }
-        function reset1() {
-            document.getElementById('adultroom').value = "";
-            document.getElementById('Cdultroom').value = "";
-            document.getElementById('adultmeal').value = "";
-            document.getElementById('Childmeal').value = "";
-            document.getElementById('adulttranfer').value = "";
-            document.getElementById('childtranfer').value = "";
-            document.getElementById('greentax1').value = "";
-            document.getElementById('totalcost1').innerHTML = "";
+        function ChildMealSupplimentCost(unitcost, noofunits, discount) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            if (b == 0) {
+                b = 1;
+            }
+            let c = Number(discount);
+            let f = a * b;
+            let d = (a * b * c) / 100;
+            total4 = f - d;
+            document.getElementById("to3").value = total4;
         }
-        function adultroomrate() {
-            document.getElementById('adultroom').value = total1;
+        function GreenTax1(unitcost, noofunits) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            total5 = a*b;
+            document.getElementById("to4").value = total5;
         }
-        function childroomrate() {
-            document.getElementById('Cdultroom').value = total1;
+        function PerNightCost1() {
+            total6 = total1+total2+total5+total3+total4;
+            document.getElementById("to5").value = total6;
         }
-        function adultmealsupplement() {
-            document.getElementById('adultmeal').value = total1;
+        function TotalCost1(noofunits) {
+            total7 = total6*noofunits;
+            document.getElementById("to6").value = total7;
         }
-        function childmealsupplement() {
-            document.getElementById('Childmeal').value = total1;
+        
+        function RoomTopupCost(unitcost, noofunits, discount) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            if (b == 0) {
+                b = 1;
+            }
+            let c = Number(discount);
+            let f = a * b;
+            let d = (a * b * c) / 100;
+            total8 = f - d;
+            document.getElementById("to7").value = total8;
         }
-        function adulttransfercost() {
-            document.getElementById('adulttranfer').value = total1;
+        function RTPCR(unitcost, noofunits) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            total9 = a*b;
+            document.getElementById("to8").value = total9;
         }
-        function childtransfercost() {
-            document.getElementById('childtranfer').value = total1;
+        function AdultTransferCost(unitcost, noofunits, discount) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            if (b == 0) {
+                b = 1;
+            }
+            let c = Number(discount);
+            let f = a * b;
+            let d = (a * b * c) / 100;
+            total10 = f - d;
+            document.getElementById("to9").value = total10;
         }
-        function greentax() {
-            document.getElementById('greentax1').value = total1;
-
+        function ChildTransferCost(unitcost, noofunits, discount) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            if (b == 0) {
+                b = 1;
+            }
+            let c = Number(discount);
+            let f = a * b;
+            let d = (a * b * c) / 100;
+            total11 = f - d;
+            document.getElementById("to10").value = total11;
         }
-        function reset2() {
-            document.getElementById('valueof').innerHTML = "";
-           
-            document.getElementById('opnd1').value = "";
-            document.getElementById('opnd2').value = "";
+        function TotalCost2() {
+            total12 = total7+total8+total9+total10+total11;
+            document.getElementById("to11").value = total12;
         }
-        function add(opnd1, opnd2) {
-            let a = Number(opnd1);
-            let b = Number(opnd2);
-            document.getElementById('valueof').innerHTML = a + b;
+        function SplitAdultRoomCost(unitcost, noofunits, discount) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            if (b == 0) {
+                b = 1;
+            }
+            let c = Number(discount);
+            let f = a * b;
+            let d = (a * b * c) / 100;
+            total13 = f - d;
+            document.getElementById("to12").value = total13;
         }
-        function sub(opnd1, opnd2) {
-            let a = Number(opnd1);
-            let b = Number(opnd2);
-            document.getElementById('valueof').innerHTML = a - b;
+        function SplitChildRoomCost(unitcost, noofunits, discount) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            if (b == 0) {
+                b = 1;
+            }
+            let c = Number(discount);
+            let f = a * b;
+            let d = (a * b * c) / 100;
+            total14 = f - d;
+            document.getElementById("to13").value = total14;
         }
-        function mul(opnd1, opnd2) {
-            let a = Number(opnd1);
-            let b = Number(opnd2);
-            document.getElementById('valueof').innerHTML = a * b;
+        function AdultMealSupplimentCost2(unitcost, noofunits, discount) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            if (b == 0) {
+                b = 1;
+            }
+            let c = Number(discount);
+            let f = a * b;
+            let d = (a * b * c) / 100;
+            total15 = f - d;
+            document.getElementById("to14").value = total15;
         }
-        function div(opnd1, opnd2) {
-            let a = Number(opnd1);
-            let b = Number(opnd2);
-            document.getElementById('valueof').innerHTML = a / b;
+        function ChildMealSupplimentCost2(unitcost, noofunits, discount) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            if (b == 0) {
+                b = 1;
+            }
+            let c = Number(discount);
+            let f = a * b;
+            let d = (a * b * c) / 100;
+            total16 = f - d;
+            document.getElementById("to15").value = total16;
         }
-
-
+        function GreenTax2(unitcost, noofunits) {
+            let a = Number(unitcost);
+            let b = Number(noofunits);
+            total17 = a*b;
+            document.getElementById("to16").value = total17;
+        }
+        function PerNightCost2() {
+            total18 = total13+total14+total15+total16+total17;
+            document.getElementById("to17").value = total18;
+        }
+        function TotalNightCost(noofunits) {
+            total19 = total18*noofunits;
+            document.getElementById("to18").value = total19;
+        }
+        function  TotalPayableAmount() {
+            total20 = total19+total12;
+            document.getElementById("to19").value=total20;
+        }
     </script>
 </body>
 
